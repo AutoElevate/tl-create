@@ -130,7 +130,6 @@ function parseMicrosoftTrusted() {
   console.log("Trust Lists: Microsoft");
   let ms = new tl_create.Microsoft();
   let tl = ms.getTrusted();
-  console.log(tl + "Here!!");
   return tl;
 }
 function parseMicrosoftDisallowed() {
