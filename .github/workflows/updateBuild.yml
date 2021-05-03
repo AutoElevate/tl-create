@@ -27,4 +27,4 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:                   
         branch: master
-        message: "Updates package typescript build"                             
+        commit_message: "Updates package typescript build"                             
