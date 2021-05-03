@@ -22,7 +22,7 @@ jobs:
         uses: EndBug/add-and-commit@v7.2.0
         with:          
           branch: latest-build
-          default-author: MarcusKane
+          author_name: Marcus Kane
+          author_email: marcus@autoelevate.com
           message: "Updates package typescript build"
-          add: 'build/cjs
-      
+          add: 'build/cjs'                     
