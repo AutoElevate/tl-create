@@ -10,7 +10,7 @@ on:
 jobs:
 
   update-build:    
-    runs-on: ubuntu-latest, windows-latest, macOS-latest    
+    runs-on: windows-latest
     steps:
       - name: Check for updated dependencies
         run: yarn
