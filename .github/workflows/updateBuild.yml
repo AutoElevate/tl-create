@@ -25,5 +25,8 @@ jobs:
 
     - name: Push build to build branch
       uses: EndBug/add-and-commit@v7.2.0
-      with:                          
+      with:           
+        author_name: Marcus Kane
+        author_email: marcus@autoelevate.com
+        branch: master
         message: "Updates package typescript build"                             
