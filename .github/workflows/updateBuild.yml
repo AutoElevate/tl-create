@@ -30,4 +30,4 @@ jobs:
         author_name: Marcus Kane
         author_email: marcus@autoelevate.com
         message: "Updates package typescript build"
-        add: 'build/cjs'                     
+        add: 'build/cjs/*'                     
