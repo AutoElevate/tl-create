@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+on: 
+  push:
+    branches: [ master ]  
+    
+  workflow_dispatch:
+
+jobs:
+
+  update-build:    
+    runs-on: ubuntu-latest, windows-latest, macOS-latest    
+    steps:
+      - name: Check for updated dependencies
+        run: yarn
+        
+      - name: Build typescript package
+        run: yarn build
+      
+      - name: Push build to build branch
+        uses: EndBug/add-and-commit@v7.2.0
+        with:          
+          branch: latest-build
+          default-author: MarcusKane
+          message: "Updates package typescript build"
+          add: 'build/cjs
+      
