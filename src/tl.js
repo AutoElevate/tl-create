@@ -1,6 +1,3 @@
-// "use strict";
-// Object.defineProperty(exports, "__esModule", { value: true });
-// exports.TrustedList = void 0;
 class TrustedList {
   constructor() {
     this.m_certificates = [];

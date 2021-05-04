@@ -1,13 +1,9 @@
-// "use strict";
-// Object.defineProperty(exports, "__esModule", { value: true });
-// exports.Microsoft = void 0;
-const tslib_1 = require("tslib");
-const child_process = tslib_1.__importStar(require("child_process"));
-const fs = tslib_1.__importStar(require("fs"));
-const path = tslib_1.__importStar(require("path"));
-const pvutils = tslib_1.__importStar(require("pvutils"));
-const temp = tslib_1.__importStar(require("temp"));
-const sync_request_1 = tslib_1.__importDefault(require("sync-request"));
+const child_process = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const pvutils = require("pvutils");
+const temp = require("temp");
+const sync_request_1 = require("sync-request");
 const asn1js = require("asn1js");
 const TrustedList = require("../tl");
 const ctl_schema = new asn1js.Sequence({
