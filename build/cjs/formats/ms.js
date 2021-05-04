@@ -230,7 +230,7 @@ class Microsoft {
     return tl;
   }
   getDisallowed(data, skipFetch = false) {
-    let tl = new TrustedList.TrustedList();
+    let tl = new TrustedList();
     let databuf;
     if (!data)
       databuf = this.fetchSTL(
