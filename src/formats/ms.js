@@ -258,6 +258,7 @@ class Microsoft {
         operator: "Unknown",
         source: "Microsoft",
         evpolicy: [],
+        thumbprint: certid,
       };
       tl.AddCertificate(tl_cert);
     }
