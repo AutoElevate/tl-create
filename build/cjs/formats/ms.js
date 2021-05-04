@@ -154,7 +154,7 @@ const microsoftDisallowedFilename = "disallowedcert.stl";
 class Microsoft {
   getTrusted(data, skipFetch = false) {
     var _a, _b;
-    let tl = new tl_1.default(); //new tl_1.TrustedList();
+    let tl = new tl_1(); //new tl_1.TrustedList();
     let databuf;
     if (!data)
       databuf = this.fetchSTL(microsoftTrustedURL, microsoftTrustedFilename);

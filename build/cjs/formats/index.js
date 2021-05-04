@@ -8,5 +8,9 @@
 // tslib_1.__exportStar(require("./ms"), exports);
 
 module.exports = {
-  ms: require("./ms"),
+  EUTL: require("./eutl"),
+  Mozilla: require("./mozilla"),
+  Microsoft: require("./ms"),
+  Apple: require("./apple"),
+  Cisco: require("./cisco"),
 };

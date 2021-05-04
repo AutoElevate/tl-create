@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TrustedList = void 0;
-module.exports = class TrustedList {
+// "use strict";
+// Object.defineProperty(exports, "__esModule", { value: true });
+// exports.TrustedList = void 0;
+class TrustedList {
   constructor(props) {
     this.m_certificates = [];
     this.AddCertificate.bind(this);
@@ -62,4 +62,6 @@ module.exports = class TrustedList {
     }
     return res.join("\n");
   }
-};
+}
+
+module.exports = TrustedList;

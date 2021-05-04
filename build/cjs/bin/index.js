@@ -1,19 +1,33 @@
 #!/usr/bin/env node
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+// "use strict";
+// Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const commander_1 = tslib_1.__importDefault(require("commander"));
+// const commander_1 = tslib_1.__importDefault(require("commander"));
 const XAdES = tslib_1.__importStar(require("xadesjs"));
 const xmldom_1 = require("xmldom");
 const pvutils = tslib_1.__importStar(require("pvutils"));
 const nodeCrypto = tslib_1.__importStar(require("crypto"));
 const tl_create = tslib_1.__importStar(require(".."));
-const fs = tslib_1.__importStar(require("fs"));
-const path = tslib_1.__importStar(require("path"));
+// const fs = tslib_1.__importStar(require("fs"));
+// const path = tslib_1.__importStar(require("path"));
 const crypto_1 = require("../crypto");
 global["DOMParser"] = xmldom_1.DOMParser;
 global["XMLSerializer"] = xmldom_1.XMLSerializer;
 XAdES.Application.setEngine("@peculiar/webcrypto", crypto_1.crypto);
+
+module.exports = {
+  getEUTLTrusted: parseEUTLTrusted,
+  getEUTLDisallowed: parseEUTLDisallowed,
+  getMozillaTrusted: parseMozillaTrusted,
+  getMozillaDisallowed: parseMozillaDisallowed,
+  getMicrosoftTrusted: parseMicrosoftTrusted,
+  getMicrosoftDisallowed: parseMicrosoftDisallowed,
+  getAppleTrusted: parseAppleTrusted,
+  getAppleDisallowed: parseAppleDisallowed,
+  getCiscoTrusted: parseCiscoTrusted,
+  getCiscoDisallowed: parseCiscoDisallowed,
+};
+
 function getDateTime() {
   let date = new Date();
   let hour = date.getHours();
@@ -29,70 +43,7 @@ function getDateTime() {
   day = +(day < 10 ? "0" : "") + day;
   return `${year}:${month}:${day}:${hour}:${min}:${sec}`;
 }
-/*commander_1.default
-  .version(require(path.join(__dirname, "../../../package.json")).version)
-  .option("-e, --eutl", "EU Trust List Parse")
-  .option("-m, --mozilla", "Mozilla Trust List Parse")
-  .option("-s, --microsoft", "Microsoft Trust List Parse")
-  .option("-a, --apple", "Apple Trust List Parse")
-  .option("-c, --cisco", "Cisco Trust List Parse")
-  .option(
-    "-C, --ciscotype [type]",
-    "Select Cisco Trusted Root Store (external/union/core)",
-    "external"
-  )
-  .option("-f, --for [type]", "Add the specified type for parse", "ALL")
-  .option(
-    "-o, --format [format]",
-    "Add the specified type for output format",
-    "pem"
-  )
-  .option("-d, --disallowed", "Fetch disallowed roots instead of trusted");
-commander_1.default.on("--help", () => {
-  console.log("  Examples:");
-  console.log("");
-  console.log("    $ tl-create --mozilla --format pem roots.pem");
-  console.log(
-    '    $ tl-create --mozilla --for "EMAIL_PROTECTION,CODE_SIGNING" --format pem roots.pem'
-  );
-  console.log("    $ tl-create --eutl --format pem roots.pem");
-  console.log("    $ tl-create --eutl --format js roots.js");
-  console.log("    $ tl-create --microsoft --format pem roots.pem");
-  console.log(
-    "    $ tl-create --microsoft --disallowed --format pem disallowedroots.pem"
-  );
-  console.log("    $ tl-create --apple --format pem roots.pem");
-  console.log(
-    "    $ tl-create --cisco --ciscotype core --format pem roots.pem"
-  );
-  console.log("");
-});
-commander_1.default.on("--help", () => {
-  console.log("  Types:");
-  console.log("");
-  console.log("    DIGITAL_SIGNATURE");
-  console.log("    NON_REPUDIATION");
-  console.log("    KEY_ENCIPHERMENT");
-  console.log("    DATA_ENCIPHERMENT");
-  console.log("    KEY_AGREEMENT");
-  console.log("    KEY_CERT_SIGN");
-  console.log("    CRL_SIGN");
-  console.log("    SERVER_AUTH");
-  console.log("    CLIENT_AUTH");
-  console.log("    CODE_SIGNING");
-  console.log("    EMAIL_PROTECTION");
-  console.log("    IPSEC_END_SYSTEM");
-  console.log("    IPSEC_TUNNEL");
-  console.log("    IPSEC_USER");
-  console.log("    IPSEC_PROTECTION");
-  console.log("    TIME_STAMPING");
-  console.log("    STEP_UP_APPROVED");
-  console.log("    OCSP_SIGNING");
-  console.log("    DOCUMENT_SIGNING");
-  console.log("    EFS_CRYPTO");
-  console.log("");
-});
-commander_1.default.parse(process.argv);*/
+
 function parseEUTLTrusted() {
   console.log("Trust Lists: EUTL");
   let eutl = new tl_create.EUTL();
@@ -172,7 +123,6 @@ function parseCiscoTrusted(ciscoType) {
 function parseCiscoDisallowed() {
   throw new Error("Cisco does not support disallowed certificates.");
 }
-/*
 function jsonToPKIJS(json) {
   let _pkijs = [];
   for (let i in json) {
@@ -181,6 +131,7 @@ function jsonToPKIJS(json) {
   }
   return _pkijs;
 }
+/*
 let filter = commander_1.default.for.split(",");
 function trustFilter(item) {
   if (item.source === "EUTL") return true;
@@ -386,7 +337,3 @@ switch ((commander_1.default.format || "pem").toLowerCase()) {
     console.log("Invalid output format");
     break;
 }*/
-
-module.exports = {
-  getMicrosoftTrusted: parseMicrosoftTrusted,
-};
