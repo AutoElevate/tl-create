@@ -29,7 +29,7 @@ function getDateTime() {
   day = +(day < 10 ? "0" : "") + day;
   return `${year}:${month}:${day}:${hour}:${min}:${sec}`;
 }
-commander_1.default
+/*commander_1.default
   .version(require(path.join(__dirname, "../../../package.json")).version)
   .option("-e, --eutl", "EU Trust List Parse")
   .option("-m, --mozilla", "Mozilla Trust List Parse")
@@ -92,7 +92,7 @@ commander_1.default.on("--help", () => {
   console.log("    EFS_CRYPTO");
   console.log("");
 });
-commander_1.default.parse(process.argv);
+commander_1.default.parse(process.argv);*/
 function parseEUTLTrusted() {
   console.log("Trust Lists: EUTL");
   let eutl = new tl_create.EUTL();
@@ -172,6 +172,7 @@ function parseCiscoTrusted(ciscoType) {
 function parseCiscoDisallowed() {
   throw new Error("Cisco does not support disallowed certificates.");
 }
+/*
 function jsonToPKIJS(json) {
   let _pkijs = [];
   for (let i in json) {
@@ -384,7 +385,7 @@ switch ((commander_1.default.format || "pem").toLowerCase()) {
   default:
     console.log("Invalid output format");
     break;
-}
+}*/
 
 module.exports = {
   getMicrosoftTrusted: parseMicrosoftTrusted,
