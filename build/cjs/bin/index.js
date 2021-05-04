@@ -29,9 +29,9 @@ const dir = {
   getCiscoDisallowed: parseCiscoDisallowed,
 };
 
-let res = dir.getMicrosoftTrusted();
+// let res = dir.getMicrosoftTrusted();
 // res = res.concat(new TrustedList());
-console.log(res, res.length);
+// console.log(res, res.length);
 // console.log(res.Certificates);
 // console.log(res.toJSON)
 
