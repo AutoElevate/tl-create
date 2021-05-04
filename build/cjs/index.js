@@ -3,10 +3,10 @@
 // const tslib_1 = require("tslib");
 // tslib_1.__exportStar(require("./tl"), exports);
 // tslib_1.__exportStar(require("./formats"), exports);
-const tl = require("./tl");
+// const tl = require("./tl");
 // const ms = require("./formats/ms");
 
 module.exports = {
-  TrustedList: tl,
+  TrustedList: require("./tl"),
   ...require("./formats"),
 };

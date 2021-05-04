@@ -8,6 +8,7 @@ const xmldom_1 = require("xmldom");
 const pvutils = tslib_1.__importStar(require("pvutils"));
 const nodeCrypto = tslib_1.__importStar(require("crypto"));
 const tl_create = tslib_1.__importStar(require(".."));
+const TrustedList = require("../tl");
 // const fs = tslib_1.__importStar(require("fs"));
 // const path = tslib_1.__importStar(require("path"));
 const crypto_1 = require("../crypto");
@@ -15,7 +16,7 @@ global["DOMParser"] = xmldom_1.DOMParser;
 global["XMLSerializer"] = xmldom_1.XMLSerializer;
 XAdES.Application.setEngine("@peculiar/webcrypto", crypto_1.crypto);
 
-module.exports = {
+const dir = {
   getEUTLTrusted: parseEUTLTrusted,
   getEUTLDisallowed: parseEUTLDisallowed,
   getMozillaTrusted: parseMozillaTrusted,
@@ -27,6 +28,14 @@ module.exports = {
   getCiscoTrusted: parseCiscoTrusted,
   getCiscoDisallowed: parseCiscoDisallowed,
 };
+
+let res = dir.getMicrosoftTrusted();
+// res = res.concat(new TrustedList());
+console.log(res, res.length);
+// console.log(res.Certificates);
+// console.log(res.toJSON)
+
+module.exports = dir;
 
 function getDateTime() {
   let date = new Date();
@@ -60,7 +69,7 @@ function parseEUTLTrusted() {
     .catch(function (e) {
       console.log("Error:", e.message);
     });
-  return tl;
+  return tl.Certificates;
 }
 function parseEUTLDisallowed() {
   throw "EUTL does not support disallowed certificates.";
@@ -69,37 +78,37 @@ function parseMozillaTrusted() {
   console.log("Trust Lists: Mozilla");
   let moz = new tl_create.Mozilla();
   let tl = moz.getTrusted();
-  return tl;
+  return tl.Certificates;
 }
 function parseMozillaDisallowed() {
   console.log("Trust Lists: Mozilla");
   let moz = new tl_create.Mozilla();
   let tl = moz.getDisallowed();
-  return tl;
+  return tl.Certificates;
 }
 function parseMicrosoftTrusted() {
   console.log("Trust Lists: Microsoft");
   let ms = new tl_create.Microsoft();
   let tl = ms.getTrusted();
-  return tl;
+  return tl.Certificates;
 }
 function parseMicrosoftDisallowed() {
   console.log("Trust Lists: Microsoft");
   let ms = new tl_create.Microsoft();
   let tl = ms.getDisallowed();
-  return tl;
+  return tl.Certificates;
 }
 function parseAppleTrusted() {
   console.log("Trust Lists: Apple");
   let apple = new tl_create.Apple();
   let tl = apple.getTrusted();
-  return tl;
+  return tl.Certificates;
 }
 function parseAppleDisallowed() {
   console.log("Trust Lists: Apple");
   let apple = new tl_create.Apple();
   let tl = apple.getDisallowed();
-  return tl;
+  return tl.Certificates;
 }
 function parseCiscoTrusted(ciscoType) {
   console.log(`Trust Lists: Cisco - ${ciscoType}`);
@@ -118,7 +127,7 @@ function parseCiscoTrusted(ciscoType) {
     .catch(function (e) {
       console.log("Error:", e);
     });
-  return tl;
+  return tl.Certificates;
 }
 function parseCiscoDisallowed() {
   throw new Error("Cisco does not support disallowed certificates.");

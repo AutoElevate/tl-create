@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Microsoft = void 0;
+// "use strict";
+// Object.defineProperty(exports, "__esModule", { value: true });
+// exports.Microsoft = void 0;
 const tslib_1 = require("tslib");
 const child_process = tslib_1.__importStar(require("child_process"));
 const fs = tslib_1.__importStar(require("fs"));
@@ -9,7 +9,7 @@ const pvutils = tslib_1.__importStar(require("pvutils"));
 const temp = tslib_1.__importStar(require("temp"));
 const sync_request_1 = tslib_1.__importDefault(require("sync-request"));
 const asn1js = require("asn1js");
-const tl_1 = tslib_1.__importStar(require("../tl"));
+const TrustedList = require("../tl");
 const ctl_schema = new asn1js.Sequence({
   name: "CTL",
   value: [
@@ -154,7 +154,7 @@ const microsoftDisallowedFilename = "disallowedcert.stl";
 class Microsoft {
   getTrusted(data, skipFetch = false) {
     var _a, _b;
-    let tl = new tl_1(); //new tl_1.TrustedList();
+    let tl = new TrustedList();
     let databuf;
     if (!data)
       databuf = this.fetchSTL(microsoftTrustedURL, microsoftTrustedFilename);
@@ -230,7 +230,7 @@ class Microsoft {
     return tl;
   }
   getDisallowed(data, skipFetch = false) {
-    let tl = new tl_1.TrustedList();
+    let tl = new TrustedList.TrustedList();
     let databuf;
     if (!data)
       databuf = this.fetchSTL(

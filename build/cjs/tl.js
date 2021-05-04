@@ -2,9 +2,13 @@
 // Object.defineProperty(exports, "__esModule", { value: true });
 // exports.TrustedList = void 0;
 class TrustedList {
-  constructor(props) {
+  constructor() {
     this.m_certificates = [];
-    this.AddCertificate.bind(this);
+    this.AddCertificate = this.AddCertificate.bind(this);
+    this.toJSON = this.toJSON.bind(this);
+    this.concat = this.concat.bind(this);
+    this.filter = this.filter.bind(this);
+    this.toString = this.toString.bind(this);
   }
   get Certificates() {
     return this.m_certificates;
