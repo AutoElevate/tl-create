@@ -323,10 +323,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
-"@xmldom/xmldom@0.8.9":
-  version "0.8.9"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.9.tgz#b6ef7457e826be8049667ae673eda7876eb049be"
-  integrity sha512-4VSbbcMoxc4KLjb1gs96SRmi7w4h1SF+fCoiK0XaQX62buCc1G5d0DC5bJ9xJBNPDSVCmIrcl8BiYxzjrqaaJA==
+"@xmldom/xmldom@^0.8.2":
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.10.tgz#a1337ca426aa61cef9fe15b5b28e340a72f6fa99"
+  integrity sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==
 
 aggregate-error@^3.0.0:
   version "3.1.0"
@@ -1899,6 +1899,11 @@ tslib@2.2.0, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
 
+tslib@^2.4.0:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.1.tgz#fd8c9a0ff42590b25703c0acb3de3d3f4ede0410"
+  integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
+
 type-fest@^0.8.0:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
@@ -2007,19 +2012,28 @@ xadesjs@2.1.1:
     xml-core "^1.1.0"
     xmldsigjs "^2.1.1"
 
-xml-core@1.1.2, xml-core@^1.1.0:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/xml-core/-/xml-core-1.1.2.tgz#364a4834dbd5da55d5b7473505ff7af4b319c55b"
-  integrity sha512-+AKWq+5srt1Kolz20UVVmmBNTZAQioE0DOjBrgybXpzVdtuF00l4lqlGy6YllDe/kwIW/ew0mvfJ/LiLZbAR8A==
+xml-core@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/xml-core/-/xml-core-1.1.3.tgz#105b461a93c7b8f7705b59afe123010a4c1102b5"
+  integrity sha512-J4QwwIqa/7Sw4kGgMUZT69jpN9vZxeUFB8JcJTx3A/A4uBl+0Zb/TRH78F67jUTny0F9RKpcYrZJclrgLmGG/w==
   dependencies:
-    tslib "^2.1.0"
-    xmldom "^0.5.0"
+    tslib "^2.2.0"
+    xmldom "^0.6.0"
     xpath.js "^1.1.0"
 
-xmldom@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.5.0.tgz#193cb96b84aa3486127ea6272c4596354cb4962e"
-  integrity sha512-Foaj5FXVzgn7xFzsKeNIde9g6aFBxTPi37iwsno8QvApmtg7KYrr+OPyRHcJF7dud2a5nGRBXK3n0dL62Gf7PA==
+xml-core@^1.1.0:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/xml-core/-/xml-core-1.1.5.tgz#40dde48d16139e9093d32e7dffdb4c6a0305d5ea"
+  integrity sha512-6pZbMgvvtSxXSLmWkUPgFi274oljUHCBKm9GS4ySCXhXCODbJwB8e/UHHzbnnm4X1vVWMfXcip2vrLxN6KSbMw==
+  dependencies:
+    "@xmldom/xmldom" "^0.8.2"
+    tslib "^2.4.0"
+    xpath.js "^1.1.0"
+
+xmldom@0.6.0, xmldom@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.6.0.tgz#43a96ecb8beece991cef382c08397d82d4d0c46f"
+  integrity sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==
 
 xmldsigjs@2.1.3, xmldsigjs@^2.1.1:
   version "2.1.3"
